@@ -19,7 +19,12 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release-Signed' ">
-    <DefineConstants>$(DefineConstants);SIGNED</DefineConstants>
+    <DefineConstants>TRACE;SIGNED;RELEASE_SIGNED;NETSTANDARD1_3</DefineConstants>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)'=='Release-Unity'">
+    <DefineConstants>TRACE;SIGNED;RELEASE_SIGNED;UNITY;RELEASE_UNITY;UNITY</DefineConstants>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
@@ -29,6 +34,10 @@
    -->
   <PropertyGroup Condition="'$(TargetFramework)' != 'netstandard1.3'">
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug-Unity|net20|AnyCPU'" />
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug-Unity|netstandard1.3|AnyCPU'">
+    <DefineConstants>TRACE;UNITY</DefineConstants>
   </PropertyGroup>
   <ItemGroup Condition="'$(TargetFramework)' != 'netstandard1.3'">
     <Reference Include="System" />
