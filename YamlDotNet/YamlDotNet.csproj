@@ -24,7 +24,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)'=='Release-Unity'">
-    <DefineConstants>TRACE;SIGNED;RELEASE_SIGNED;UNITY;RELEASE_UNITY;UNITY</DefineConstants>
+    <DefineConstants>TRACE;SIGNED;UNITY</DefineConstants>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
 
